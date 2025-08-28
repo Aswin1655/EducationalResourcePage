@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Commit 1: Structure - basic head metadata -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Class Educational Resources</title>
+  <meta name="description" content="Curated study resources for our class: notes, videos, and reference links." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+
+  <!-- Commit 2: Styling - simple, clean look (no external CSS needed) -->
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121933;
+      --text: #e8ecff;
+      --muted: #a8b2d1;
+      --accent: #6aa7ff;
+      --accent-2: #88f7c0;
+      --border: #243056;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      background: linear-gradient(180deg, var(--bg), #0d1530 35%, #0a0f22 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      padding: 3rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      letter-spacing: 0.3px;
+    }
+    header p {
+      margin: 0.5rem auto 0;
+      color: var(--muted);
+      max-width: 60ch;
+      font-size: 0.975rem;
+    }
+    .container {
+      max-width: 980px;
+      margin: 1.5rem auto 4rem;
+      padding: 0 1rem 2rem;
+    }
+    .badge {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin: 0.75rem 0 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: linear-gradient(180deg, var(--card), #0f1833);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+    .card h2 {
+      margin: 0 0 0.25rem;
+      font-size: 1.15rem;
+    }
+    .card p {
+      margin: 0.25rem 0 0.75rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .links {
+      list-style: none;
+      padding: 0;
+      margin: 0.25rem 0 0;
+    }
+    .links li {
+      margin: 0.35rem 0;
+      border-left: 2px solid transparent;
+      padding-left: 0.5rem;
+    }
+    .links a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .links a:hover,
+    .links a:focus {
+      text-decoration: underline;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+    .footer {
+      margin-top: 2rem;
+      padding: 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .kbd {
+      background: #0b1226;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.1rem 0.35rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.85rem;
+      color: var(--accent-2);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    @media (min-width: 800px) {
+      .split { grid-template-columns: 2fr 1fr; }
+    }
+    details {
+      background: #0b1226;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+    }
+    summary { cursor: pointer; }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      background: #0b1226;
+      color: #d8e2ff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    pre { padding: 0.75rem; overflow-x: auto; }
+    .pill {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.75rem;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <!-- Commit 1: Structure - header & intro -->
+  <header>
+    <h1>Educational Resources — Our Class Hub <span class="pill">v1.0</span></h1>
+    <p>A curated, living list of references, tutorials, and tools to help us learn together.
+      Contributions welcome—see “How to Contribute” below.</p>
+    <div class="badge" id="last-updated">Last updated: <span>Aug 28, 2025</span></div>
+  </header>
+
+  <main class="container">
+    <section class="split">
+      <div>
+        <!-- Commit 3: Links - main resource lists -->
+        <div class="card">
+          <h2>Core Web & Programming</h2>
+          <p>Start here for fundamentals you’ll use across the course.</p>
+          <ul class="links">
+            <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a> — HTML, CSS, JS references.</li>
+            <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener">W3Schools</a> — quick syntax lookups & try-it editor.</li>
+            <li><a href="https://www.khanacademy.org/computing/computer-programming" target="_blank" rel="noopener">Khan Academy Programming</a> — beginner-friendly lessons & practice.</li>
+            <li><a href="https://www.freecodecamp.org/learn/" target="_blank" rel="noopener">freeCodeCamp Curriculum</a> — hands-on certifications.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Git & GitHub</h2>
+          <p>Version control, collaboration, and publishing with GitHub Pages.</p>
+          <ul class="links">
+            <li><a href="https://git-scm.com/docs" target="_blank" rel="noopener">Official Git Docs</a> — commands & concepts.</li>
+            <li><a href="https://docs.github.com/en/pages" target="_blank" rel="noopener">GitHub Pages Docs</a> — host static sites from your repo.</li>
+            <li><a href="https://docs.github.com/en/get-started/quickstart/hello-world" target="_blank" rel="noopener">GitHub Hello World</a> — repo basics & workflow.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Study Aids & Reference</h2>
+          <p>Extra reading and practice resources.</p>
+          <ul class="links">
+            <li><a href="https://roadmap.sh/" target="_blank" rel="noopener">roadmap.sh</a> — visual learning paths.</li>
+            <li><a href="https://stackoverflow.com/" target="_blank" rel="noopener">Stack Overflow</a> — Q&A for specific issues.</li>
+            <li><a href="https://ocw.mit.edu/" target="_blank" rel="noopener">MIT OpenCourseWare</a> — open course materials.</li>
+          </ul>
+        </div>
+
+        <div class="card" id="latest">
+          <h2>Latest Additions</h2>
+          <p>Links added after initial release (use this for your “later” commit).</p>
+          <ul class="links">
+            <!-- Add new resources here in your later commit -->
+            <li><a href="https://web.dev/learn/" target="_blank" rel="noopener">web.dev/learn</a> — modern web best practices (Google).</li>
+          </ul>
+          <div class="note">Tip: When you add more links here later, write a concise commit message like
+            <code>feat(resources): add web.dev learn modules</code>.
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h2>How to Use This Page</h2>
+          <p>Browse sections, open links in new tabs, and suggest edits via pull requests.</p>
+          <ul class="links">
+            <li><a href="#contribute">Contribute via Git</a></li>
+            <li><a href="https://education.github.com/git-cheat-sheet-education.pdf" target="_blank" rel="noopener">Git Cheat Sheet (PDF)</a></li>
+          </ul>
+        </div>
+
+        <div class="card" id="contribute">
+          <h2>How to Contribute (Git)</h2>
+          <p>Recommended workflow (summarized):</p>
+          <ol class="links">
+            <li>Fork the repo, clone locally: <code>git clone &lt;your-fork-url&gt;</code></li>
+            <li>Create a branch: <code>git checkout -b feat/add-new-resources</code></li>
+            <li>Edit <code>index.html</code>, stage & commit: <code>git add . &amp;&amp; git commit -m "feat: add resource X"</code></li>
+            <li>Push & open a pull request: <code>git push -u origin feat/add-new-resources</code></li>
+          </ol>
+          <p class="note">Keep messages short & conventional (feat, fix, docs, style, chore).</p>
+        </div>
+
+        <div class="card">
+          <h2>Course Links</h2>
+          <ul class="links">
+            <li><a href="#" aria-disabled="true">Syllabus (add your link)</a></li>
+            <li><a href="#" aria-disabled="true">Assignment Portal (add your link)</a></li>
+            <li><a href="#" aria-disabled="true">Discussion Forum (add your link)</a></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card">
+      <h2>Project Information</h2>
+      <p>This site is hosted on GitHub Pages from the <code>main</code> branch. After pushing commits,
+        Pages will redeploy automatically.</p>
+      <details>
+        <summary>Suggested Git Commands (copy-paste friendly)</summary>
+        <pre><code>
+# Commit 0 (local setup)
+git init
+git config user.name "Your Name"
+git config user.email "your-email@example.com"
+
+# Commit 1: Structure (add this HTML skeleton with headings/sections only)
+git add index.html
+git commit -m "chore(structure): add initial page layout"
+
+# Commit 2: Styling (add & tweak the &lt;style&gt; block)
+git add index.html
+git commit -m "style(ui): add base styles and layout grid"
+
+# Commit 3: Links (populate resource lists)
+git add index.html
+git commit -m "feat(resources): add core links and sections"
+
+# Push to GitHub
+git branch -M main
+git remote add origin https://github.com/&lt;username&gt;/&lt;repo&gt;.git
+git push -u origin main
+
+# Enable GitHub Pages (Settings → Pages → Branch: main /root)
+# Later: add new resources and push
+git pull
+# edit index.html
+git add index.html
+git commit -m "feat(resources): add new links to Latest Additions"
+git push
+        </code></pre>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      Made with 💻 & 📚 — Hosted on GitHub Pages.
+      <br />
+      <span class="note">Repo: <code>https://github.com/&lt;username&gt;/&lt;repo&gt;</code> · Live: <code>https://&lt;username&gt;.github.io/&lt;repo&gt;/</code></span>
+    </div>
+  </footer>
+</body>
+</html>
